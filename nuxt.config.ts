@@ -106,7 +106,7 @@ export default defineNuxtConfig({
       projectDescription: "FLR Chat is the first decentralized social network on Flare. Brought to you by Flare Domains.",
       projectTwitter: "https://twitter.com/flrdomains",
       projectUrl: "https://flr.chat", // without trailing slash!
-      punkMinterAddress: "0x63f8691b048e68E1C3d6E135aDc81291A9bb1987", // punk domain minter contract address
+      punkMinterAddress: "0xe54e012B198468B2cbC7eF3Dd9B8C66d5795aD99", // punk domain minter contract address
       punkNumberOfPrices: 5, // number of different prices (based on domain length), usually 1 (price()) or 5 (price1char() - price5char())
       punkTldAddress: "0xBDACF94dDCAB51c39c2dD50BffEe60Bb8021949a", // punk domain TLD address
       randomPostsNumber: 1, // number of random post NFTs to show in the sidebar widget

@@ -1,6 +1,6 @@
 <template>
 <div class="col col-lg-auto px-0 mt-1">
-  <div id="sidebar1" class="collapse collapse-horizontal">
+  <div id="sidebar1" class="collapse collapse-horizontal sticky-lg-top">
     <div class="sidebar-nav list-group border-0 rounded-0 text-sm-start min-vh-100">
       <div class="card m-2 p-2 bg-light">
 
@@ -53,13 +53,12 @@
           </li>
           -->
 
-          <!-- Profile 
-          <li v-if="isActivated" class="nav-item p-1" @click="closeLeftSidebar">
-            <NuxtLink class="nav-link" :class="$route.path.startsWith('/profile') ? 'active' : ''" aria-current="page" to="/profile">
-              <i class="bi bi-person"></i> Profile
+          <!-- NFT Launchpad -->
+          <li class="nav-item p-1" @click="closeLeftSidebar" v-if="$config.nftLaunchpadBondingAddress">
+            <NuxtLink class="nav-link" :class="$route.path.startsWith('/nft') ? 'active' : ''" aria-current="page" to="/nft">
+              <i class="bi bi-rocket-takeoff"></i> NFT Launchpad
             </NuxtLink>
           </li>
-          -->
 
           <!-- Notifications -->
           <li v-if="isActivated" class="nav-item p-1" @click="closeLeftSidebar">
@@ -75,10 +74,10 @@
             </NuxtLink>
           </li>
 
-          <!-- NFT Launchpad -->
-          <li class="nav-item p-1" @click="closeLeftSidebar" v-if="$config.nftLaunchpadBondingAddress">
-            <NuxtLink class="nav-link" :class="$route.path.startsWith('/nft') ? 'active' : ''" aria-current="page" to="/nft">
-              <i class="bi bi-rocket-takeoff"></i> NFT Launchpad
+          <!-- Profile -->
+          <li v-if="isActivated" class="nav-item p-1" @click="closeLeftSidebar">
+            <NuxtLink class="nav-link" :class="$route.path.startsWith('/profile') ? 'active' : ''" aria-current="page" to="/profile">
+              <i class="bi bi-person"></i> Profile
             </NuxtLink>
           </li>
 
@@ -119,15 +118,15 @@
           </li>
           -->
 
-          <!-- About          
+          <!-- About -->    
           <li class="nav-item p-1" @click="closeLeftSidebar">
             <NuxtLink class="nav-link" :class="$route.path.startsWith('/about') ? 'active' : ''" aria-current="page" to="/about">
               <i class="bi bi-patch-question"></i> About
             </NuxtLink>
           </li>
-          --> 
+          
 
-          <!-- More -->
+          <!-- More 
           <li class="nav-item p-1 dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
               <i class="bi bi-three-dots"></i> More
@@ -135,21 +134,18 @@
 
             <ul class="dropdown-menu">
 
-              <!-- Airdrop -->
               <li class="pt-1 pb-1" @click="closeLeftSidebar" v-if="$config.airdropClaimDomainsAddress || $config.airdropPostMintersAddress">
                 <NuxtLink class="dropdown-item" :class="$route.path.startsWith('/airdrop') ? 'active' : ''" aria-current="page" to="/airdrop">
                   <i class="bi bi-gift"></i> Airdrop
                 </NuxtLink>
               </li>
 
-              <!-- Profile -->
               <li class="pt-1 pb-1" @click="closeLeftSidebar">
                 <NuxtLink class="dropdown-item" :class="$route.path.startsWith('/profile') ? 'active' : ''" aria-current="page" to="/profile">
                   <i class="bi bi-person"></i> Profile
                 </NuxtLink>
               </li>
 
-              <!-- Notifications 
               <li class="pt-1 pb-1">
                 <NuxtLink class="dropdown-item" :class="$route.path.startsWith('/notifications') ? 'active' : ''" aria-current="page" to="/notifications">
                   <i class="bi bi-bell"></i> Notifications
@@ -162,16 +158,13 @@
 
                 </NuxtLink>
               </li>
-              -->
 
-              <!-- Governance -->
               <li class="pt-1 pb-1" @click="closeLeftSidebar">
                 <a class="dropdown-item" href="https://snapshot.org/#/flrchat.eth" target="_blank">
                   <i class="bi bi-box2"></i> Governance <small><i class="bi bi-box-arrow-up-right ms-1"></i></small>
                 </a>
               </li>
 
-              <!-- About -->
               <li class="pt-1 pb-1" @click="closeLeftSidebar">
                 <NuxtLink class="dropdown-item" :class="$route.path.startsWith('/about') ? 'active' : ''" aria-current="page" to="/about">
                   <i class="bi bi-patch-question"></i> About
@@ -180,6 +173,7 @@
 
             </ul>
           </li>
+          -->
 
         </ul>
       </div>

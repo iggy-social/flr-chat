@@ -89,7 +89,7 @@
   <div v-if="!domainNotExists && !showBuySellButtons && !buyKeyToChat && !isKeyHolder" class="card border mt-3 scroll-500">
     <div class="card-body">
 
-      <h3 class="mb-4 mt-3 text-center">Popular Keys List</h3>
+      <h3 class="mb-4 mt-3 text-center">Featured Keys List</h3>
 
       <div class="d-flex justify-content-center">
         <div class="col-12 col-lg-8">

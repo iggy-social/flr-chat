@@ -7,7 +7,7 @@
       </button>
 
       <NuxtLink class="navbar-brand mx-auto" to="/">
-        <img src="/img/logo.png" alt="Chat logo" height="24">
+        <img src="/img/logo.svg" alt="Chat logo" height="30">
       </NuxtLink>
 
       <button @click="toggleRightSidebar" class="nav-item btn navbar-toggler nav-btn-right" type="button">

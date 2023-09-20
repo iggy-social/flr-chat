@@ -69,8 +69,8 @@ export default defineNuxtConfig({
       linkPreviews: "netlify", // "netlify" or "microlink" (or leave empty for no link previews)
       lpTokenAddress: "", // liquidity pool token (token to stake in the staking contract)
       lpTokenSymbol: "LP tokens", // LP token symbol
-      marketplaceCollectionUrl: "https://sparklesnft.com/collection/flare/flr-chat-posts/",
-      marketplaceNftItemUrl: "https://sparklesnft.com/item/flare/0x5e54CebB2612744cB56547bC7CC41466ad7ac557_", // url (append nft id to it)
+      marketplaceCollectionUrl: "https://marketplace.flareocean.io/collection/14/0x5e54cebb2612744cb56547bc7cc41466ad7ac557",
+      marketplaceNftItemUrl: "https://marketplace.flareocean.io/asset/14/0x5e54cebb2612744cb56547bc7cc41466ad7ac557/", // url (append nft id to it)
       maxImageUploadSizeMb: 1, // max image upload size in MB
       newsletterLink: "https://zcmp.eu/Onz",
       nftDefaultRatio: 4200, // default ratio for the NFT price bonding curve

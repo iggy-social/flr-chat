@@ -178,7 +178,21 @@ exports.handler = async function (event, context) {
       statusCode: 200,
       body: JSON.stringify({ data: finalMetadata }),
     };
-  } 
+  } else if (url.startsWith("https://twitter.com") || url.startsWith("https://x.com")) {
+    const finalMetadata = {
+      "url": url,
+      "title": "Twitter / X.com",
+      "description": "Elon's land, Elon's rules. Enter at your own risk.", 
+      "image": { 
+        url: "https://www.newswire.lk/wp-content/uploads/2022/12/elon-musk-twitter.jpg"
+      }
+    };
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ data: finalMetadata }),
+    };
+  }
 
   try {
     const response = await fetch(url); 

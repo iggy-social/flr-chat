@@ -73,6 +73,52 @@ exports.handler = async function (event, context) {
       statusCode: 200,
       body: JSON.stringify({ data: finalMetadata }),
     };
+  } else if (url.startsWith("https://flr.lol") || url.startsWith("http://flr.lol")) {
+    let domain = url.split("flr.lol")[1];
+
+    let finalMetadata = {
+      "url": url,
+      "title": "FLR.lol",
+      "description": "Redirection service for .flr domains", 
+      "image": { 
+        url: "https://bafybeiel57g56gfq24bssra2nl4t53apco7trglnctztzlclawaatlqcny.ipfs.w3s.link/flr-lol-cover.jpg"
+      }
+    };
+
+    if (domain) {
+      domain = domain.replace("/", "").replace(".flr", "");
+      domain = domain.toLowerCase() + ".flr";
+      finalMetadata.title = domain;
+      finalMetadata.description = "Check the " + domain + " website!";
+    }
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ data: finalMetadata }),
+    };
+  } else if (url.startsWith("https://flr.fyi") || url.startsWith("http://flr.fyi")) {
+    let domain = url.split("flr.fyi")[1];
+
+    let finalMetadata = {
+      "url": url,
+      "title": "FLR.fyi",
+      "description": "Redirection service for .flr domains", 
+      "image": { 
+        url: "https://bafybeigcxcukcq3hmr4fqpayy6beegej5s45lmgzvwk234yzld3eshn5oa.ipfs.w3s.link/flr-fyi-cover.jpg"
+      }
+    };
+
+    if (domain) {
+      domain = domain.replace("/", "").replace(".flr", "");
+      domain = domain.toLowerCase() + ".flr";
+      finalMetadata.title = domain;
+      finalMetadata.description = "Check the " + domain + " website!";
+    }
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ data: finalMetadata }),
+    };
   } else if (url.startsWith("https://opensea.io/assets/base/")) {
     const cleanUrl = url.split("?")[0];
     const addrTokenId = cleanUrl.split("opensea.io/assets/base/")[1];

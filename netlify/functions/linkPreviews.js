@@ -89,6 +89,7 @@ exports.handler = async function (event, context) {
       domain = domain.replace("/", "").replace(".flr", "");
       domain = domain.toLowerCase() + ".flr";
       finalMetadata.title = domain;
+      finalMetadata.image = "";
       finalMetadata.description = "Check the " + domain + " website!";
     }
 
@@ -112,6 +113,7 @@ exports.handler = async function (event, context) {
       domain = domain.replace("/", "").replace(".flr", "");
       domain = domain.toLowerCase() + ".flr";
       finalMetadata.title = domain;
+      finalMetadata.image = "";
       finalMetadata.description = "Check the " + domain + " website!";
     }
 

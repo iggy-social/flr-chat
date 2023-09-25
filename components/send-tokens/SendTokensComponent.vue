@@ -199,6 +199,13 @@ export default {
     },
 
     async send() {
+      // if recipient includes a dot, check if it ends with tldName. If not, throw error via toast
+      if (this.inputReceiver.includes(".")) {
+        if (!this.inputReceiver.endsWith(this.$config.tldName)) {
+          return this.toast.error("Invalid domain name. Only " + this.$config.tldName + " domains are supported.");
+        }
+      }
+
       this.waiting = true;
 
       await this.processRecipient(this.inputReceiver);

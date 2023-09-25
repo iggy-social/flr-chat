@@ -32,13 +32,12 @@
       </div>
     </h3>
 
-    <!--
+    <!-- NFT competition alert -->
     <div class="alert alert-primary mb-3 text-center" role="alert">
-      <NuxtLink to="/post/?id=kjzl6cwe1jw14a6xp8a5eqyosbt7jevgzow5s528gd20zf81d5b9l5cwfi42xzi">
-        Create your NFT and win a 1000 {{ $config.tokenSymbol }} prize! Hurry up, the competition ends on Thursday, 21 September!
+      <NuxtLink to="/post/?id=kjzl6cwe1jw149z0ddpcygc1nhgjdppg1zpr8r4s0j8siaq0bod6u0v5dyaqr2c">
+        Create your NFT and win a 2000 {{ $config.tokenSymbol }} prize! Hurry up, the competition ends on Friday, 29 September!
       </NuxtLink>
     </div>
-    -->
 
     <div class="d-flex justify-content-center mb-3" v-if="waitingData">
       <span class="spinner-border spinner-border-lg" role="status" aria-hidden="true"></span>

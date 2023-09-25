@@ -81,6 +81,13 @@
             </NuxtLink>
           </li>
 
+          <!-- Swap -->
+          <li class="nav-item p-1" @click="closeLeftSidebar">
+            <NuxtLink class="nav-link" :class="$route.path.startsWith('/send-tokens') ? 'active' : ''" aria-current="page" to="/send-tokens">
+              <i class="bi bi-send"></i> Send tokens
+            </NuxtLink>
+          </li>
+
           <!-- Stake & Earn -->
           <li class="nav-item p-1" @click="closeLeftSidebar" v-if="$config.stakingContractAddress">
             <NuxtLink class="nav-link" :class="$route.path.startsWith('/stake') ? 'active' : ''" aria-current="page" to="/stake">

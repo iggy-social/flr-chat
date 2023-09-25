@@ -52,7 +52,7 @@
 
       <!-- Disabled Send tokens button (if not input amount is entered) -->
       <button
-        v-if="isActivated && !inputTokenAmount"
+        v-if="isActivated && !inputTokenAmount && isSupportedNetwork"
         :disabled="true" 
         class="btn btn-outline-primary" 
         type="button"
@@ -62,8 +62,8 @@
 
       <!-- Send tokens button -->
       <button
-        v-if="isActivated && inputTokenAmount && inputAmountLessThanBalance"
-        :disabled="waiting || !inputToken || !inputTokenAmount || !isActivated || !inputAmountLessThanBalance || !inputReceiver" 
+        v-if="isActivated && inputTokenAmount && inputAmountLessThanBalance && isSupportedNetwork"
+        :disabled="waiting || !inputToken || !inputTokenAmount || !isActivated || !inputAmountLessThanBalance || !inputReceiver || !isSupportedNetwork" 
         class="btn btn-outline-primary" 
         type="button"
         @click="send"
@@ -74,12 +74,22 @@
 
       <!-- Balance too low button -->
       <button
-        v-if="isActivated && inputTokenAmount && !inputAmountLessThanBalance"
+        v-if="isActivated && inputTokenAmount && !inputAmountLessThanBalance && isSupportedNetwork"
         :disabled="true" 
         class="btn btn-outline-primary" 
         type="button"
       >
         Balance too low
+      </button>
+
+      <!-- Wrong network button -->
+      <button
+        v-if="isActivated && !isSupportedNetwork"
+        :disabled="true" 
+        class="btn btn-outline-primary" 
+        type="button"
+      >
+        Wrong network
       </button>
 
     </div>
@@ -156,6 +166,10 @@ export default {
       }
 
       return false;
+    },
+
+    isSupportedNetwork() {
+      return this.chainId == this.$config.supportedChainId;
     }
 
   },

@@ -29,7 +29,7 @@
           </a>
           <div class="dropdown-menu dropdown-menu-end">
             <NuxtLink class="dropdown-item cursor-pointer" to="/airdrop">Claim {{ $config.chatTokenSymbol }} airdrop</NuxtLink>
-            <NuxtLink class="dropdown-item cursor-pointer" to="/stake">Stake & earn weekly FLR rewards</NuxtLink>
+            <NuxtLink class="dropdown-item cursor-pointer" to="/stake">Stake & earn weekly {{ $config.tokenSymbol }} rewards</NuxtLink>
             <span class="dropdown-item cursor-pointer" @click="addToMetaMask">Add {{ $config.chatTokenSymbol }} to MetaMask</span>s
           </div>
         </li>
@@ -56,6 +56,7 @@ import { useUserStore } from '~/store/user';
 import ConnectWalletButton from "~/components/ConnectWalletButton.vue";
 import SwitchChainButton from "~/components/SwitchChainButton.vue";
 import { addTokenToMetaMask } from '~/utils/tokenUtils';
+import { getTextWithoutBlankCharacters } from '~/utils/textUtils';
 
 export default {
   name: "Navbar",
@@ -68,7 +69,7 @@ export default {
   computed: {
     showDomainOrAddress() {
       if (this.userStore.getDefaultDomain) {
-        return this.userStore.getDefaultDomain;
+        return getTextWithoutBlankCharacters(this.userStore.getDefaultDomain);
       } else if (this.address) {
         return this.shortenAddress(this.address);
       }

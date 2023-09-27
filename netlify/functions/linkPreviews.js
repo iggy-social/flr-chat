@@ -74,20 +74,20 @@ exports.handler = async function (event, context) {
       body: JSON.stringify({ data: finalMetadata }),
     };
   } else if (
-    url.includes("flr.lol") ||
-    url.includes("flr.fyi") ||
-    url.includes("flr.best")
+    url.endsWith("flr.lol") ||
+    url.endsWith("flr.fyi") ||
+    url.endsWith("flr.best")
   ) {
     let hostname;
     let imageUrl;
 
-    if (url.includes("flr.lol")) {
+    if (url.endsWith("flr.lol")) {
       hostname = "flr.lol";
       imageUrl = "https://bafybeiel57g56gfq24bssra2nl4t53apco7trglnctztzlclawaatlqcny.ipfs.w3s.link/flr-lol-cover.jpg";
-    } else if (url.includes("flr.fyi")) {
+    } else if (url.endsWith("flr.fyi")) {
       hostname = "flr.fyi";
       imageUrl = "https://bafybeigcxcukcq3hmr4fqpayy6beegej5s45lmgzvwk234yzld3eshn5oa.ipfs.w3s.link/flr-fyi-cover.jpg";
-    } else if (url.includes("flr.best")) {
+    } else if (url.endsWith("flr.best")) {
       hostname = "flr.best";
       imageUrl = "https://bafybeihsf6kmnct4outbf6lzy4c2rygzmpx6bwoschfn5twuyx24puz52m.ipfs.w3s.link/flr-best-cover.png";
     }

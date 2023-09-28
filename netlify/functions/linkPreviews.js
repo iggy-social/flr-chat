@@ -9,8 +9,9 @@ exports.handler = async function (event, context) {
 
   const url = event.queryStringParameters.url;
 
-  // check if URL is an NFT marketplace
+  // link previews for specific sites
   if (url.startsWith("https://sparklesnft.com/item/flare/")) {
+    // SPARKLES ITEM
     const cleanUrl = url.split("?")[0];
     const addrTokenId = cleanUrl.split("https://sparklesnft.com/item/flare/")[1].replace("/", "");
     const addr = addrTokenId.split("_")[0];
@@ -73,52 +74,8 @@ exports.handler = async function (event, context) {
       statusCode: 200,
       body: JSON.stringify({ data: finalMetadata }),
     };
-  } else if (
-    url.endsWith("flr.lol") ||
-    url.endsWith("flr.lol/") ||
-    url.endsWith("flr.fyi") ||
-    url.endsWith("flr.fyi/") ||
-    url.endsWith("flr.best") ||
-    url.endsWith("flr.best/")
-  ) {
-    let hostname;
-    let imageUrl;
-
-    if (url.includes("flr.lol")) {
-      hostname = "flr.lol";
-      imageUrl = "https://bafybeiel57g56gfq24bssra2nl4t53apco7trglnctztzlclawaatlqcny.ipfs.w3s.link/flr-lol-cover.jpg";
-    } else if (url.includes("flr.fyi")) {
-      hostname = "flr.fyi";
-      imageUrl = "https://bafybeigcxcukcq3hmr4fqpayy6beegej5s45lmgzvwk234yzld3eshn5oa.ipfs.w3s.link/flr-fyi-cover.jpg";
-    } else if (url.includes("flr.best")) {
-      hostname = "flr.best";
-      imageUrl = "https://bafybeihsf6kmnct4outbf6lzy4c2rygzmpx6bwoschfn5twuyx24puz52m.ipfs.w3s.link/flr-best-cover.png";
-    }
-
-    let domain = url.split(hostname)[1];
-
-    let finalMetadata = {
-      "url": url,
-      "title": hostname.toUpperCase(),
-      "description": "Redirection service for .flr domains", 
-      "image": { 
-        url: imageUrl
-      }
-    };
-
-    if (domain) {
-      domain = domain.replace("/", "").replace(".flr", "");
-      domain = domain.toLowerCase() + ".flr";
-      finalMetadata.title = domain;
-      finalMetadata.image = "";
-      finalMetadata.description = "Check the " + domain + " website!";
-    }
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ data: finalMetadata }),
-    };
   } else if (url.startsWith("https://opensea.io/assets/base/")) {
+    // OPENSEA ITEM
     const cleanUrl = url.split("?")[0];
     const addrTokenId = cleanUrl.split("opensea.io/assets/base/")[1];
     const addr = addrTokenId.split("/")[0];
@@ -182,6 +139,7 @@ exports.handler = async function (event, context) {
       body: JSON.stringify({ data: finalMetadata }),
     };
   } else if (url.startsWith("https://twitter.com") || url.startsWith("https://x.com")) {
+    // TWITTER
     const finalMetadata = {
       "url": url,
       "title": "Twitter / X.com",
@@ -197,6 +155,7 @@ exports.handler = async function (event, context) {
     };
   }
 
+  // link previews for all other sites
   try {
     const response = await fetch(url); 
     const html = await response.text();
@@ -234,7 +193,6 @@ exports.handler = async function (event, context) {
       body: JSON.stringify({ data: finalMetadata }),
     };
     
-    //return metadata;
   } catch (error) {
     console.error('Error fetching link preview metadata:', error);
 

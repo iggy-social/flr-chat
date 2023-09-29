@@ -70,7 +70,16 @@
               <a :href="$config.blockExplorerBaseUrl+'/address/'+cAddress" target="_blank" style="text-decoration: none;">
                 {{ shortenAddress(cAddress) }}
               </a>
-              <span v-if="getUsernameOrShortAddress"> by {{ getUsernameOrShortAddress }}</span>
+              <span v-if="getUsernameOrShortAddress"> by 
+                <NuxtLink :to="'/profile/?id='+String(getUsernameOrFullAddress)">{{getUsernameOrShortAddress}}</NuxtLink>
+              </span>
+            </p>
+
+            <p class="me-4">
+              <i class="bi bi-box-arrow-up-right me-2"></i>
+              <a :href="$config.marketplaceNftCollectionBaseUrl+cAddress" target="_blank" style="text-decoration: none;">
+                See on NFT marketplace
+              </a>
             </p>
           </div>
           <!-- END Data -->
@@ -289,6 +298,15 @@ export default {
   },
 
   computed: {
+    getUsernameOrFullAddress() {
+      if (this.cAuthorDomain) {
+        let cleanName = String(this.cAuthorDomain).replace(this.$config.tldName, "");
+        return getTextWithoutBlankCharacters(cleanName) + this.$config.tldName;
+      } else {
+        return this.cAuthorAddress;
+      }
+    },
+
     getUsernameOrShortAddress() {
       if (this.cAuthorAddress) {
         if (this.cAuthorDomain) {

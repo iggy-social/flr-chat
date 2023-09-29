@@ -38,7 +38,7 @@
             You own <span class="text-primary">{{ currentUserBalance }}</span> of these post NFTs
           </li>
           <li>
-            <a class="text-decoration-none" target="_blank" :href="$config.marketplaceNftItemUrl+getQueryId">
+            <a class="text-decoration-none" target="_blank" :href="$config.marketplacePostNftItemUrl+getQueryId">
               See it on NFT marketplace 
               <i class="bi bi-box-arrow-up-right"></i>
             </a>

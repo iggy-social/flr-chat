@@ -69,8 +69,9 @@ export default defineNuxtConfig({
       linkPreviews: "netlify", // "netlify" or "microlink" (or leave empty for no link previews)
       lpTokenAddress: "", // liquidity pool token (token to stake in the staking contract)
       lpTokenSymbol: "LP tokens", // LP token symbol
-      marketplaceCollectionUrl: "https://marketplace.flareocean.io/collection/14/0x5e54cebb2612744cb56547bc7cc41466ad7ac557",
-      marketplaceNftItemUrl: "https://marketplace.flareocean.io/asset/14/0x5e54cebb2612744cb56547bc7cc41466ad7ac557/", // url (append nft id to it)
+      marketplacePostNftUrl: "https://marketplace.flareocean.io/collection/14/0x5e54cebb2612744cb56547bc7cc41466ad7ac557",
+      marketplacePostNftItemUrl: "https://marketplace.flareocean.io/asset/14/0x5e54cebb2612744cb56547bc7cc41466ad7ac557/", // url (append nft id to it)
+      marketplaceNftCollectionBaseUrl: "https://marketplace.flareocean.io/collection/14/", // url (append nft address to it)
       maxImageUploadSizeMb: 1, // max image upload size in MB
       newsletterLink: "https://zcmp.eu/Onz",
       nftDefaultRatio: 4200, // default ratio for the NFT price bonding curve

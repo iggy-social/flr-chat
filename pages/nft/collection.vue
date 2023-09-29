@@ -30,18 +30,12 @@
         <div class="col-md-5 text-center mb-3">
           <img :src="cImage" class="img-fluid img-thumbnail rounded col-12" />
 
-          <div v-if="isCurrentAddressOwner" class="d-flex justify-content-center mt-3">
-            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#changeImageModal">
-              Edit image
-            </button>
-          </div>
-
           <div class="dropdown mt-3">
             <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Edit
+              Actions
             </button>
             <ul class="dropdown-menu">
-              <li><span class="dropdown-item cursor-pointer" data-bs-toggle="modal" data-bs-target="#changeImageModal">Edit image</span></li>
+              <li v-if="isCurrentAddressOwner"><span class="dropdown-item cursor-pointer" data-bs-toggle="modal" data-bs-target="#changeImageModal">Edit image</span></li>
               <li><span class="dropdown-item cursor-pointer" @click="getCollectionDetails(true)">Refresh metadata</span></li>
             </ul>
           </div>

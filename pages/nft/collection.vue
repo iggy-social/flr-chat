@@ -35,6 +35,17 @@
               Edit image
             </button>
           </div>
+
+          <div class="dropdown mt-3">
+            <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Edit
+            </button>
+            <ul class="dropdown-menu">
+              <li><span class="dropdown-item cursor-pointer" data-bs-toggle="modal" data-bs-target="#changeImageModal">Edit image</span></li>
+              <li><span class="dropdown-item cursor-pointer" @click="getCollectionDetails(true)">Refresh metadata</span></li>
+            </ul>
+          </div>
+
         </div>
 
         <div class="col-md-7">
@@ -434,10 +445,15 @@ export default {
       }
     },
 
-    async getCollectionDetails() {
+    async getCollectionDetails(refresh=false) {
       this.waitingData = true;
 
       let collection = fetchCollection(window, this.cAddress);
+
+      if (refresh) {
+        console.log("Refreshing collection metadata...");
+        collection = null;
+      }
 
       // fetch provider from hardcoded RPCs
       let provider = this.$getFallbackProvider(this.$config.supportedChainId);

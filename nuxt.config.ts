@@ -73,7 +73,7 @@ export default defineNuxtConfig({
       marketplacePostNftItemUrl: "https://marketplace.flareocean.io/asset/14/0x5e54cebb2612744cb56547bc7cc41466ad7ac557/", // url (append nft id to it)
       marketplaceNftCollectionBaseUrl: "https://marketplace.flareocean.io/collection/14/", // url (append nft address to it)
       maxImageUploadSizeMb: 1, // max image upload size in MB
-      newsletterLink: "https://zcmp.eu/Onz",
+      newsletterLink: "https://paragraph.xyz/@iggy/flr-chat-a-web3-social-network-on-flare",
       nftDefaultRatio: 4200, // default ratio for the NFT price bonding curve
       nftLaunchpadBondingAddress: "0xC3623737209Cc141592B20bcEBCA6052AFCcD183", // NFT launchpad with bonding curve contract address
       nftLaunchpadLatestItems: 8, // number of latest NFTs to show in the NFT launchpad

@@ -457,7 +457,8 @@ export default {
         "function getCollectionPreviewImage(address) public view returns (string memory)",
         "function descriptions(address) public view returns (string memory)", // OLD NFTs
         "function mdTypes(address) public view returns (uint256)", // OLD NFTs
-      	"function names(address) public view returns (string memory)" // OLD NFTs
+      	"function names(address) public view returns (string memory)", // OLD NFTs
+      	"function mds(address) public view returns (string memory, string memory, string memory, string memory, string memory, uint256)" // OLD NFTs
       ]);
       
       const metadataContract = new ethers.Contract(this.mdAddress, metadataInterface, provider);
@@ -477,6 +478,8 @@ export default {
         }
       }
 
+      let mdsData;
+
       // get description
       if (collection?.description && collection.description !== "" && collection.description !== null) {
         this.cDescription = collection.description;
@@ -484,9 +487,15 @@ export default {
         try {
           this.cDescription = await metadataContract.getCollectionDescription(this.cAddress);
         } catch (e) {
-          this.cDescription = await metadataContract.descriptions(this.cAddress);
+          try {
+            this.cDescription = await metadataContract.descriptions(this.cAddress);
+          } catch (e) {
+            if (!mdsData) {
+              mdsData = await metadataContract.mds(this.cAddress);
+            }
+            this.cDescription = mdsData[1];
+          }
         }
-        
       }
 
       // get type
@@ -496,7 +505,16 @@ export default {
         try {
           this.cType = await metadataContract.getCollectionMetadataType(this.cAddress);
         } catch (e) {
-          this.cType = await metadataContract.mdTypes(this.cAddress);
+          // TODO
+          try {
+            this.cType = await metadataContract.mdTypes(this.cAddress);
+          } catch (e) {
+            if (!mdsData) {
+              mdsData = await metadataContract.mds(this.cAddress);
+            }
+            this.cType = mdsData[5];
+          }
+          
         }
       }
 

@@ -60,19 +60,21 @@ export default defineNuxtConfig({
       expiryCollections: 1000 * 60 * 60 * 24 * 7, // must be in milliseconds (0 means no expiration)
       expiryUsernames: 1000 * 60 * 60 * 24 * 7, // must be in milliseconds (0 means no expiration)
       favicon: "/img/favicon.svg",
+      fileUploadEnabled: true, // enable/disable file uploads (enable only if external file storage is used, e.g. IPFS via Spheron)
+      fileUploadSizeLimit: 1 * 1024 * 1024, // max file upload size in bytes (1 * 1024 * 1024 = 1 MB)
+      fileUploadTokenService: process.env.FILE_UPLOAD_SERVICE || "netlify", // "netlify" or "vercel" (or leave empty for no file uploads)
       getPostsLimit: 30, // number of posts to fetch from Orbis in the getPosts() function
       iggyPostAddress: "0x5e54CebB2612744cB56547bC7CC41466ad7ac557",
       iggyPostMinterAddress: "0x2F103ec022a1d99291077a082b2DC24C734E58A3",
       iggyPostEnumerationAddress: "0xabf9960132818049340253C3Ca0551F92Db856d7",
       keysAddress: "0x7058413D002B36486465FF8628bBcCE080e6Af87", // PunkKey contract address 
       keysContext: "kjzl6cwe1jw1470yqtxwcv6787md81via98w2grf8c404vcaop91h5g6q08uizx",
-      linkPreviews: "netlify", // "netlify" or "microlink" (or leave empty for no link previews)
+      linkPreviews: process.env.LINK_PREVIEW_SERVICE || "netlify", // "netlify", "vercel", or "microlink" (or leave empty for no link previews)
       lpTokenAddress: "", // liquidity pool token (token to stake in the staking contract)
       lpTokenSymbol: "LP tokens", // LP token symbol
       marketplacePostNftUrl: "https://marketplace.flareocean.io/collection/14/0x5e54cebb2612744cb56547bc7cc41466ad7ac557",
       marketplacePostNftItemUrl: "https://marketplace.flareocean.io/asset/14/0x5e54cebb2612744cb56547bc7cc41466ad7ac557/", // url (append nft id to it)
       marketplaceNftCollectionBaseUrl: "https://marketplace.flareocean.io/collection/14/", // url (append nft address to it)
-      maxImageUploadSizeMb: 1, // max image upload size in MB
       newsletterLink: "https://paragraph.xyz/@iggy/flr-chat-a-web3-social-network-on-flare",
       nftDefaultRatio: 4200, // default ratio for the NFT price bonding curve
       nftLaunchpadBondingAddress: "0x7c8fbdb5Bd20Ae239c3e3BfD775663c6989B17CD", // NFT launchpad with bonding curve contract address
@@ -122,8 +124,7 @@ export default defineNuxtConfig({
       tldName: ".flr",
       tokenAddress: null, // leave null if it's a native token of the chain
       tokenDecimals: 18,
-      tokenSymbol: "FLR",
-      web3storageKey: process.env.WEB3_STORAGE_KEY || ""
+      tokenSymbol: "FLR"
     }
   },
   vite: {

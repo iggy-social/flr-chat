@@ -67,6 +67,7 @@ export default defineNuxtConfig({
       iggyPostAddress: "0x5e54CebB2612744cB56547bC7CC41466ad7ac557",
       iggyPostMinterAddress: "0x2F103ec022a1d99291077a082b2DC24C734E58A3",
       iggyPostEnumerationAddress: "0xabf9960132818049340253C3Ca0551F92Db856d7",
+      ipfsGateway: "https://cloudflare-ipfs.com/ipfs/",
       keysAddress: "0x7058413D002B36486465FF8628bBcCE080e6Af87", // PunkKey contract address 
       keysContext: "kjzl6cwe1jw1470yqtxwcv6787md81via98w2grf8c404vcaop91h5g6q08uizx",
       linkPreviews: process.env.LINK_PREVIEW_SERVICE || "netlify", // "netlify", "vercel", or "microlink" (or leave empty for no link previews)

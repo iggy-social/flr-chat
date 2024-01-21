@@ -1,5 +1,5 @@
 <template>
-  <ChatFeed class="mt-1" :showQuotedPost="$config.showRepliesOnHomepage" :orbisContext="getOrbisContext" />
+  <ChatFeed class="mt-1" :allPosts="true" :showQuotedPost="$config.showRepliesOnHomepage" :orbisContext="getOrbisContext" />
 </template>
 
 <script>

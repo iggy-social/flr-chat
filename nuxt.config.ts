@@ -84,15 +84,15 @@ export default defineNuxtConfig({
       nftLaunchpadLatestItems: 8, // number of latest NFTs to show in the NFT launchpad
       nftOrbisContext: "kjzl6cwe1jw148e97zfluxmt9bvzq51cx6dkbt0ghd6w6b6fjhl8c7ont5kh1uf", // Orbis context for NFT collection pages
       orbisCategories: [ // use only alphanumeric ASCII characters for slugs! (no spaces, only dash is allowed)
-        { "slug": "all", "title": "All posts", "hidden": false }, // not a real tag, just denotes the absence of a tag (always keep it here)
+        { "slug": "all", "title": "All posts", "hidden": true }, // not a real tag, just denotes the absence of a tag (always keep it here)
         { "slug": "general", "title": "General discussion", "hidden": false },
         { "slug": "shill", "title": "Shill & discuss projects", "hidden": true },
-        { "slug": "nfts", "title": "Memes & NFTs", "hidden": false }, // keep this category for the purpose of the NFT launchpad
+        { "slug": "nfts", "title": "Memes & NFTs", "hidden": true }, // keep this category for the purpose of the NFT launchpad
         { "slug": "governance", "title": "Governance", "hidden": true },
         { "slug": "food", "title": "Food & recipes", "hidden": true },
-        { "slug": "movie", "title": "Movies & Music", "hidden": false },
+        { "slug": "movie", "title": "Movies & Music", "hidden": true },
         { "slug": "music", "title": "Music", "hidden": true },
-        { "slug": "random", "title": "Random", "hidden": false },
+        { "slug": "random", "title": "Random", "hidden": true },
       ],
       orbisContext: "kjzl6cwe1jw147rlhk9v8qhkukoe5scqxj670jqoafpuaiu5jy28o8fz0y4bkbm", // production context
       orbisTest: false, // if true, test context will be used instead of the production one

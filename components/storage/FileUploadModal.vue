@@ -40,6 +40,7 @@
               <FileUploadInput 
                 btnCls="btn btn-primary"
                 :maxFileSize="maxFileSize" 
+                storageType="arweave"
                 @processUploadedFileUrl="processUploadedFileUrl"
               />
             </div>

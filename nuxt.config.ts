@@ -52,6 +52,9 @@ export default defineNuxtConfig({
     public: {
       airdropClaimDomainsAddress: "", // chat token claim for domain holders contract address
       airdropPostMintersAddress: "", // chat token claim for post minters contract address
+      arweaveAddress: process.env.ARWEAVE_ADDRESS,
+      arweaveGateway: 'https://arweave.net/',
+      arweaveMinBalance: 0.02, // minimum AR balance to upload files
       blockExplorerBaseUrl: "https://flare-explorer.flare.network",
       chatTokenAddress: "", // chat token address
       chatTokenImage: "", // chat token image
@@ -62,6 +65,7 @@ export default defineNuxtConfig({
       favicon: "/img/favicon.svg",
       fileUploadEnabled: true, // enable/disable file uploads (enable only if external file storage is used, e.g. Arweave)
       fileUploadSizeLimit: 1 * 1024 * 1024, // max file upload size in bytes (1 * 1024 * 1024 = 1 MB)
+      fileUploadStorageType: "arweave", // "arweave" or "imagekit" (or leave empty for no file uploads)
       fileUploadTokenService: process.env.FILE_UPLOAD_SERVICE || "netlify", // "netlify" or "vercel" (or leave empty for no file uploads)
       getPostsLimit: 30, // number of posts to fetch from Orbis in the getPosts() function
       iggyPostAddress: "0x5e54CebB2612744cB56547bC7CC41466ad7ac557",

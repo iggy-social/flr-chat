@@ -183,6 +183,7 @@
       infoText="Upload a new profile picture."
       :componentId="$.uid"
       :maxFileSize="$config.fileUploadSizeLimit"
+      :storageType="$config.fileUploadStorageType"
     />
     <!-- END Change Image Modal -->
 

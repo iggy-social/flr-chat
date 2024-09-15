@@ -65,7 +65,7 @@ export default defineNuxtConfig({
       favicon: "/img/favicon.svg",
       fileUploadEnabled: true, // enable/disable file uploads (enable only if external file storage is used, e.g. Arweave)
       fileUploadSizeLimit: 1 * 1024 * 1024, // max file upload size in bytes (1 * 1024 * 1024 = 1 MB)
-      fileUploadStorageType: "arweave", // "arweave" or "imagekit" (or leave empty for no file uploads)
+      fileUploadStorageType: "arweave", // "arweave" or "imagekit"
       fileUploadTokenService: process.env.FILE_UPLOAD_SERVICE || "netlify", // "netlify" or "vercel" (or leave empty for no file uploads)
       getPostsLimit: 30, // number of posts to fetch from Orbis in the getPosts() function
       iggyPostAddress: "0x5e54CebB2612744cB56547bC7CC41466ad7ac557",

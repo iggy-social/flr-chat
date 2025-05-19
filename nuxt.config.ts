@@ -67,6 +67,7 @@ export default defineNuxtConfig({
       chatTokenAddress: '', // chat token address
       chatTokenImage: '', // chat token image
       chatTokenSymbol: 'DEMO', // chat token symbol or name
+      customRpc: process.env.RPC_CUSTOM,
       domainRequiredToPost: true,
       expiryCollections: 1000 * 60 * 60 * 24 * 7, // must be in milliseconds (0 means no expiration)
       expiryMods: 1000 * 60 * 60 * 24 * 7, // must be in milliseconds (0 means no expiration)

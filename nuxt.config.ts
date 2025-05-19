@@ -55,9 +55,18 @@ export default defineNuxtConfig({
       arweaveGateway: 'https://arweave.net/',
       arweaveMinBalance: 0.02, // minimum AR balance to upload files
       blockExplorerBaseUrl: "https://flare-explorer.flare.network",
-      chatTokenAddress: "", // chat token address
-      chatTokenImage: "", // chat token image
-      chatTokenSymbol: "", // chat token symbol or name
+      chat: {
+        contexts: {
+          general: '0xc7491B7E4ddc777A60Ce5F52BCBD03e90b8b65Af', // general discussion channel
+          memesImages: '0xB30979406EBC8145141dEa9C07D56945B08131EB',
+          shill: '0x6DffDac80732bF1b489e270771a24C609cdB0821',
+          nftLaunchpad: '0x20E8b04C5E758839C1585bF4e0f1bb44985f9D42', // comments context
+        },
+        storage: 'arweave', // storage type: 'arweave' or 'ipfs'
+      },
+      chatTokenAddress: '', // chat token address
+      chatTokenImage: '', // chat token image
+      chatTokenSymbol: 'DEMO', // chat token symbol or name
       domainRequiredToPost: true,
       expiryCollections: 1000 * 60 * 60 * 24 * 7, // must be in milliseconds (0 means no expiration)
       expiryMods: 1000 * 60 * 60 * 24 * 7, // must be in milliseconds (0 means no expiration)
@@ -82,6 +91,7 @@ export default defineNuxtConfig({
       linkPreviews: process.env.LINK_PREVIEW_SERVICE || 'netlify', // "netlify", "vercel", or "microlink" (or leave empty for no link previews)
       lpTokenAddress: '', // liquidity pool token (token to stake in the staking contract)
       lpTokenSymbol: 'LP tokens', // LP token symbol
+      nftLaunchpadLatestItems: 4, // number of latest NFTs to show in the NFT launchpad
       previewImage: '/img/covers/cover.png',
       previewImageAirdrop: '/img/covers/cover-airdrop.png',
       previewImageNftCollection: '/img/covers/cover-nft-collection.png',

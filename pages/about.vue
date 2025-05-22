@@ -13,32 +13,24 @@
       <h3 class="mb-3 mt-3">Web3 Social is here.</h3>
 
       <p class="text-break mt-3">
-        Iggy Social Demo is showcase of an open-source template that anyone can use to build their own web3 social app.
+        FLR Chat is <strong>the first web3 social network</strong> built on Flare.
       </p>
 
       <p class="text-break mt-3">
-        Web3 Social is a place where social media is fully decentralized, permissionless and all the data is owned by
-        users. The way it should be.
+        Web3 Social is a place where social media is fully decentralized, permissionless and all the data is owned by users. 
+        The way it should be.
       </p>
 
       <p class="text-break mt-3">
-        Let's leave the old world of corporation-controlled social media behind us and move towards a decentralized
-        future. We promise, it's going to be a lot of fun!
+        Let's leave the old world of corporation-controlled social media behind us and move towards a decentralized future. 
+        We promise, it's going to be a lot of fun!
       </p>
 
       <p class="text-break mt-3">
-        Brought to you by the
-        <a target="_blank" href="https://punk.domains">Punk Domains</a> &
-        <a target="_blank" href="https://iggy.social/">Iggy Social</a> team.
+        Brought to you by the 
+        <a target="_blank" href="https://flr.domains">Flare Domains</a> & Punk Domains
+        team.
       </p>
-
-      <h5>Useful links</h5>
-
-      <ul>
-        <li><a href="https://github.com/iggy-social" target="_blank">Iggy Social GitHub</a></li>
-        <li><a href="https://github.com/punk-domains" target="_blank">Punk Domains GitHub</a></li>
-        <li><a href="https://discord.gg/8dSrwrAQeu" target="_blank">Discord</a></li>
-      </ul>
 
       <h5>Tech stack</h5>
 

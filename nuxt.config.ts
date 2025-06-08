@@ -60,7 +60,7 @@ export default defineNuxtConfig({
           general: '0xc7491B7E4ddc777A60Ce5F52BCBD03e90b8b65Af', // general discussion channel
           memesImages: '0xB30979406EBC8145141dEa9C07D56945B08131EB',
           shill: '0x6DffDac80732bF1b489e270771a24C609cdB0821',
-          nftLaunchpad: '0x20E8b04C5E758839C1585bF4e0f1bb44985f9D42', // comments context
+          nftLaunchpad: '0x1FF832a58C4F22350DF06523AeE9FA9CaE30dAe7', // comments context
         },
         storage: 'arweave', // storage type: 'arweave' or 'ipfs'
       },

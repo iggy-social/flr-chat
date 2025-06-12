@@ -43,6 +43,10 @@
               <span style="font-size: 0.9em;">ⓐ</span>
             </a>
           </span>
+          <span v-if="reputationScore" class="badge text-bg-warning ms-2" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Vera reputation score">
+            <i class="bi bi-star-fill"></i>
+            {{ reputationScore }}
+          </span>
         </p>
 
         <!-- post text -->
@@ -189,6 +193,7 @@ export default {
       parsedText: null,
       postUrl: null,
       replyIndex: null,
+      reputationScore: null,
       showFullText: false,
       storageId: null,
       waitingDeleteMessage: false,
@@ -231,6 +236,9 @@ export default {
     } else {
       this.checkIfCurrenctUserIsMod()
     }
+
+    // fetch reputation score
+    this.fetchReputationScore()
   },
 
   computed: {
@@ -507,6 +515,23 @@ export default {
       // TODO: store message in browser local storage
 
       this.parseMessageText()
+    },
+
+    async fetchReputationScore() {
+      if (this.message?.author) {
+        const reputationScore = fetchData(window, this.message.author, 'reputation-score', this.$config.expiryReputationScore)
+
+        if (reputationScore) {
+          this.reputationScore = reputationScore
+        } else {
+          const resp = await axios.get(`https://flare-api.vera.space/api/reputation/${this.message.author}`)
+
+          if (resp?.data && typeof resp.data.reputation_score === 'number') {
+            this.reputationScore = resp.data.reputation_score
+            storeData(window, this.message.author, this.reputationScore, 'reputation-score')
+          }
+        }
+      }
     },
 
     parseMessageText() {

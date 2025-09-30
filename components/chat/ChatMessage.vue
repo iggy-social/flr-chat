@@ -312,6 +312,11 @@ export default {
 
   methods: {
     async checkIfCurrenctUserIsMod() {
+      // Check if address is valid before proceeding
+      if (!this.chatContext || !ethers.utils.isAddress(this.chatContext) || !this.address || !ethers.utils.isAddress(this.address)) {
+        return this.currUserIsMod = false
+      }
+
       const value = fetchData(window, this.chatContext, 'mod-' + this.address, this.$config.expiryMods)
 
       if (value) {
@@ -519,16 +524,16 @@ export default {
 
     async fetchReputationScore() {
       if (this.message?.author) {
-        const reputationScore = fetchData(window, this.message.author, 'reputation-score', this.$config.expiryReputationScore)
+        const reputationScoreObj = fetchData(window, this.message.author, 'reputation-score', this.$config.expiryReputationScore)
 
-        if (reputationScore) {
-          this.reputationScore = reputationScore
+        if (reputationScoreObj && reputationScoreObj?.reputationScore) {
+          this.reputationScore = reputationScoreObj.reputationScore
         } else {
           const resp = await axios.get(`https://flare-api.vera.space/api/reputation/${this.message.author}`)
 
           if (resp?.data && typeof resp.data.reputation_score === 'number') {
             this.reputationScore = resp.data.reputation_score
-            storeData(window, this.message.author, this.reputationScore, 'reputation-score')
+            storeData(window, this.message.author, { reputationScore: this.reputationScore }, 'reputation-score')
           }
         }
       }

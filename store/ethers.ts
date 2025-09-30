@@ -9,7 +9,7 @@ export const useEthersStore = defineStore('ethers', {
     signer: ethers.Signer | null
     balance: bigint
   } => ({
-    provider: null,
+    provider: 'https://flare-api.flare.network/ext/C/rpc' as any | null,
     signer: null,
     balance: BigInt(0),
   }),
